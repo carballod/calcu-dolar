@@ -1,7 +1,7 @@
 import './globals.css'
-import { Inter } from 'next/font/google'
+import {Space_Mono} from "next/font/google";
 
-const inter = Inter({ subsets: ['latin'] })
+const spaceMono = Space_Mono({subsets: ["latin"], weight: ["400", "700"]});
 
 export const metadata = {
   title: 'Create Next App',
@@ -11,7 +11,13 @@ export const metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode}) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={spaceMono.className}>
+        <main className="flex h-screen items-center justify-center bg-emerald-100">
+          <div className="mx-auto flex max-w-screen-md flex-1 flex-col px-4">
+            <div className="grid w-full flex-1 rounded-3xl bg-white p-8 shadow-lg">{children}</div>
+          </div>
+        </main>
+      </body>
     </html>
   )
 }
